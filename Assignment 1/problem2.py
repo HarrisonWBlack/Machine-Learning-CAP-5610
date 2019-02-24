@@ -16,8 +16,8 @@ Original file is located at
 # Use logistic regression with binary cross entropy loss
 
 import tensorflow as tf
-from keras.utils import to_categorical
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Seed random number
 np.random.seed()
@@ -39,7 +39,7 @@ def bin_cross_ent(a, y):
 
 # Load data set. 60000 training images, 10000 testing images
 mnist = tf.keras.datasets.mnist
-(training_imgs, training_labels), (test_imgs, test_labels) = mnist.load_data()
+(training_imgs, training_labels), (test_imgs_og, test_labels) = mnist.load_data()
 
 number_of_imgs, num_rows, num_columns = training_imgs.shape
 
@@ -69,7 +69,7 @@ class ImageClassifier:
       prime_a = sig_prime(a)
       
       self.weight -= learning_rate * (a - y) * x
-      self.bias -= (a - y) * learning_rate * -1
+      self.bias -= (a - y) * learning_rate
       
   def prediction(self, x):
     prediction = sig_func(self.weight.T.dot(x) + self.bias)
@@ -77,30 +77,13 @@ class ImageClassifier:
 
 # Reshape data set to vectors
 training_imgs = (training_imgs.reshape(number_of_imgs, num_rows * num_columns, 1)).astype('float32') / 255
-test_imgs = (test_imgs.reshape(10000, num_rows * num_columns)).astype('float32') / 255
+test_imgs = (test_imgs_og.reshape(10000, num_rows * num_columns)).astype('float32') / 255
 
 # Create and train each classifier
-model_0 = ImageClassifier(0)
-model_1 = ImageClassifier(1)
-model_2 = ImageClassifier(2)
-model_3 = ImageClassifier(3)
-model_4 = ImageClassifier(4)
-model_5 = ImageClassifier(5)
-model_6 = ImageClassifier(6)
-model_7 = ImageClassifier(7)
-model_8 = ImageClassifier(8)
-model_9 = ImageClassifier(9)
-
-model_0.model_training()
-model_1.model_training()
-model_2.model_training()
-model_3.model_training()
-model_4.model_training()
-model_5.model_training()
-model_6.model_training()
-model_7.model_training()
-model_8.model_training()
-model_9.model_training()
+models = []
+for digit in range(10):
+  models.append(ImageClassifier(digit))
+  models[digit].model_training()
 
 # Test accuracy on test images
 predictions = []
@@ -108,22 +91,30 @@ answer = 0
 num_right = 0
 
 for i in range ( len(test_imgs) ):
-  predictions.append(model_0.prediction(test_imgs[i]))
-  predictions.append(model_1.prediction(test_imgs[i]))
-  predictions.append(model_2.prediction(test_imgs[i]))
-  predictions.append(model_3.prediction(test_imgs[i]))
-  predictions.append(model_4.prediction(test_imgs[i]))
-  predictions.append(model_5.prediction(test_imgs[i]))
-  predictions.append(model_6.prediction(test_imgs[i]))
-  predictions.append(model_7.prediction(test_imgs[i]))
-  predictions.append(model_8.prediction(test_imgs[i]))
-  predictions.append(model_9.prediction(test_imgs[i]))
-  
+  for j in range(len(models)):
+     predictions.append(models[j].prediction(test_imgs[i]))
+      
   answer = np.argmax(predictions)
   predictions.clear()
   
   if(answer == test_labels[i]):
     num_right += 1    
 
+# Example predictions
+print("Example prediction: ")
+test_index = np.random.randint(0, len(test_imgs), size=None)
+example_predictions = []
+
+for k in range(len(models)):
+  example_predictions.append(models[k].prediction(test_imgs[test_index]))
+      
+example_answer = np.argmax(example_predictions) 
+  
+plt.imshow(test_imgs_og[test_index])
+plt.show()
+
+print("Actual number: ", test_labels[test_index])
+print("Predicted number: ", example_answer)
+
 # Print accuracy
-print(num_right/len(test_imgs))
+print("\nOverall model accuracy in decimal format: ", num_right/len(test_imgs))
