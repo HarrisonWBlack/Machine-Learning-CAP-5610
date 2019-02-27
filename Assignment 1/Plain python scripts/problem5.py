@@ -152,7 +152,7 @@ print("Appending completed")
 model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Flatten())
 model.add(tf.keras.layers.Dense(10, activation=tf.nn.softmax))
-model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='sgd', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 model.fit(np.array(appended_training_imgs), training_labels, epochs=3)
 loss_value, accuracy_value = model.evaluate(np.array(appended_test_imgs), test_labels)
 
