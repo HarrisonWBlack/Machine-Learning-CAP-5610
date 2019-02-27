@@ -1,6 +1,6 @@
 # Machine-Learning-CAP-5610
 
-Colab Links
+Assignment 1 Colab Links
 
 Problem 1: https://colab.research.google.com/drive/1NcwVSaSJ1-qWMpuPR6c744LMV38E1KZM
 
