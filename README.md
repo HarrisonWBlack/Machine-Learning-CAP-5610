@@ -11,7 +11,7 @@ https://colab.research.google.com/drive/1lYgVVW0h4qVYP-6s77qVE9BvppDtavyn
 Model 3: Six layer, dropout, with batch normalization and data augmentation.  
 https://colab.research.google.com/drive/1cQ9wjS_bb4Mmpoy723-IW__dhBRiLd8g
 
-Model 4: Five layer, no dropout, no batch normalization and no data augmetnation.  
+Model 4: Five layer, no dropout, no batch normalization and no data augmentation.  
 https://colab.research.google.com/drive/1ifcDDKlYa_jTazXpVBgn0T73jTyhfmQF
 
 Model 5: Six layer, no dropout, with no batch normalization and no data augmentation.  
