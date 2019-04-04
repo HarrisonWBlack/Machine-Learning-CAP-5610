@@ -1,6 +1,6 @@
 # Machine-Learning-CAP-5610
 
-**Assignment 2 Colab Links
+**Assignment 2 Colab Links**
 
 Model 1 (Best): Five layer, dropout, with batch normalization and data augmentation.
 https://colab.research.google.com/drive/1e6X7SjXZdNygaYy4NvP4X8q4Gfrh_RuR
@@ -21,7 +21,7 @@ K-Fold of Model 1: Busted to a "Type Error" that should not be happening. Read t
 https://colab.research.google.com/drive/1FPt8grrKP0fA6J6fljkXD0wOdYf-I1vr
 
 
-**OLD
+**OLD**
 Assignment 1 Colab Links
 
 Problem 1: https://colab.research.google.com/drive/1NcwVSaSJ1-qWMpuPR6c744LMV38E1KZM
