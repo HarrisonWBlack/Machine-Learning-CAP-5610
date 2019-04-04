@@ -17,7 +17,7 @@ https://colab.research.google.com/drive/1ifcDDKlYa_jTazXpVBgn0T73jTyhfmQF
 Model 5: Six layer, no dropout, with no batch normalization and no data augmentation.  
 https://colab.research.google.com/drive/1jdJ6vR8LOhV3kw4IEIylYHQ3C7jW3-My
 
-K-Fold of Model 1: Busted to a "Type Error" that should not be happening. Read top of collab notebook.  
+K-Fold of Model 1: Busted due to a "Type Error" that should not be happening. Read top of collab notebook.  
 https://colab.research.google.com/drive/1FPt8grrKP0fA6J6fljkXD0wOdYf-I1vr
 
 
