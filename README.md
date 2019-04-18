@@ -1,5 +1,8 @@
 # Machine-Learning-CAP-5610
-
+  
+**Assignement 3 Colab Link**  
+https://colab.research.google.com/drive/1W6uvqJCbbFYqjDtGa98szO6K8hYri3bY
+  
 **Assignment 2 Colab Links**
 
 Model 1 (Best): Five layer, dropout, with batch normalization and data augmentation.  
