@@ -1,6 +1,6 @@
 # Machine-Learning-CAP-5610
   
-**Assignement 3 Colab Link**  
+**Assignement 3 Colab Link (All Parts)**  
 https://colab.research.google.com/drive/1W6uvqJCbbFYqjDtGa98szO6K8hYri3bY
   
 **Assignment 2 Colab Links**
